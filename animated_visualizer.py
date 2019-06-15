@@ -3,7 +3,7 @@ from matplotlib.animation import FuncAnimation
 import numpy as np
 
 
-def animateTSP(history, points):
+def animateTSP(history, points, save_path):
     ''' animate the solution over time
 
         Parameters
@@ -49,5 +49,6 @@ def animateTSP(history, points):
 
     ani = FuncAnimation(fig, update, frames=range(0, len(history), key_frames_mult),
                         init_func=init, interval=3, repeat=False)
+    ani.save(save_path, writer='imagemagick', fps=30)
 
     plt.show()
